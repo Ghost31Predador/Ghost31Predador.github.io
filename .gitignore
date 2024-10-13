@@ -1,0 +1,48 @@
+# Dependencias
+/node_modules
+/vendor
+
+# Archivos de configuración de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Directorios de compilación/build
+/dist
+/build
+/out
+
+# Archivos de caché
+.cache
+.npm
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE/editores
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de base de datos
+*.sqlite
+*.db
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de respaldo
+*.bak
+*.backup
+
+# Archivos de configuración local
+config.local.js
