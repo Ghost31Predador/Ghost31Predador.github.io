@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mart&iacute;n G. Cardoze Salado | Portafolio</title>
-    <!-- ESTO Importa las fuentes de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&family=Pixelify+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- ESTO Importa los iconos de Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <meta name="description" content="Portafolio de Martín G. Cardoze Salado, desarrollador de videojuegos especializado en UI/UX">
+    <meta name="keywords" content="desarrollo de videojuegos, UI/UX, Unity, C#, portafolio">
+    <meta name="author" content="Martín G. Cardoze Salado">
+    <title>Martín G. Cardoze Salado - Desarrollador de Videojuegos</title>
     <style>
-        /* Aqui Defino las variables CSS para colores y fuentes */
         :root {
             --color-background: #EEDCC7;
             --color-text: #43251E;
@@ -20,377 +17,229 @@
             --font-body: 'Maven Pro', sans-serif;
         }
 
-        /* Reset básico de CSS */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        /* Aqui se define el estilos generales del cuerpo */
         body {
-            font-family: var(--font-body);
-            line-height: 1.6;
-            color: var(--color-text);
+            font-family: var(--font-main);
             background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
         }
 
-        /* Aqui aplicamos la fuente Pixelify Sans a todos los encabezados */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-headers);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        /* Aqui se modifica el estilos del encabezado */
         header {
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 4px solid var(--color-background);
-        }
-
-        /* Estilos de la barra de navegación */
-        nav {
-            background-color: var(--color-text);
-            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav ul {
-            list-style-type: none;
             display: flex;
             justify-content: center;
+            list-style-type: none;
         }
 
         nav ul li {
-            margin: 0 1rem;
+            margin: 0 15px;
         }
 
         nav ul li a {
-            color: var(--color-background);
+            color: var(--color-text);
             text-decoration: none;
-            font-family: var(--font-headers);
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
 
-        /* Estilos del contenido principal */
+        nav ul li a:hover {
+            color: var(--color-primary);
+        }
+
         main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
         }
 
-        /* Estilos de las secciones con fondo blanco */
-        .section {
-            background-color: var(--color-section-bg);
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        h1, h2, h3 {
-            color: var(--color-accent);
-        }
-
-        /* Estilos de la lista de habilidades */
-        .skills-list {
+        #hero {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill-item {
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Estilos de la línea de tiempo */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--color-text);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background-color: var(--color-background);
-            border: 4px solid var(--color-accent);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid var(--color-text);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--color-text);
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid var(--color-text);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--color-text) transparent transparent;
-        }
-
-        .right::after {
-            left: -16px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-        }
-
-        /* Estilos del pie de página */
-        footer {
-            background-color: var(--color-text);
-            color: var(--color-background);
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+            padding: 2rem 0;
         }
 
-        .contact-icons a {
-            color: var(--color-background);
-            font-size: 1.5rem;
-            margin: 0 0.5rem;
-        }
-
-        /* Estilos para las imágenes de proyectos */
-        .project-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 1rem;
         }
 
-        /* Media query para diseño responsive */
-        @media screen and (max-width: 600px) {
-            .timeline::after {
-                left: 31px;
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+        }
+
+        #intro, #featured-projects {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            padding: 0 1rem 1rem;
+        }
+
+        .project-card a {
+            display: inline-block;
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--color-primary);
+            color: var(--color-text);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .project-card a:hover {
+            background-color: var(--color-secondary);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--color-text);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+            nav ul li {
+                margin: 10px 0;
             }
 
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid var(--color-background);
-                border-width: 10px 10px 10px 0;
-                border-color: transparent var(--color-background) transparent transparent;
-            }
-
-            .left::after, .right::after {
-                left: 15px;
-            }
-
-            .right {
-                left: 0%;
+            .project-gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-
 <body>
     <header>
-        <img src="Martin%20Cardoze.jpg" alt="Martin G. Cardoze Salado" class="profile-pic">
-        <h1 style="color: var(--color-background);">Mart&iacute;n G. Cardoze Salado</h1>
-        <p>Desarrollador de videojuegos</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="about.html">Sobre Mí</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#formacion">Formación</a></li>
-            <li><a href="#experiencia">Experiencia</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#datos-interes">Datos de Interés</a></li>
-        </ul>
-    </nav>
-
     <main>
-        <section id="sobre-mi" class="section">
+        <section id="hero">
+            <img src="assets/images/Martin Cardoze.jpg" alt="Martín G. Cardoze Salado" class="profile-pic">
+            <h1>Martín G. Cardoze Salado</h1>
+            <h2>Desarrollador de Videojuegos</h2>
+        </section>
+
+        <section id="intro">
             <h2>Sobre mí</h2>
             <p>Persona responsable y organizada. Buscando Experiencia Laboral en la industria y en el área de UI & UX.</p>
         </section>
 
-        <section id="habilidades" class="section">
-            <h2>Habilidades Técnicas</h2>
-            <div class="skills-list">
-                <span class="skill-item">Unity</span>
-                <span class="skill-item">Github</span>
-                <span class="skill-item">C#</span>
-                <span class="skill-item">C++</span>
-            </div>
-        </section>
-
-        <section id="formacion" class="section">
-            <h2>Formación</h2>
-            <h3>Universidad Interamericana de Puerto Rico, Estados Unidos</h3>
-            <p>Actualmente - Cuarto Año</p>
-            <ul>
-                <li>Diseño y Desarrollo de Videojuegos</li>
-            </ul>
-
-            <h3>Instituto Episcopal San Cristobal</h3>
-            <p>2018</p>
-            <ul>
-                <li>Bachiller en Letras con énfasis en Turismo y Hotelería</li>
-            </ul>
-
-            <h3>Formación Complementaria</h3>
-            <ul>
-                <li>Taller de Videojuegos con impacto social, Organización Mundial de la Propiedad Intelectual, Noviembre 2023</li>
-            </ul>
-        </section>
-
-        <section id="experiencia" class="section">
-            <h2>Experiencia Laboral</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Salonero</h3>
-                        <p>Clayton Bowling - Ciudad del Saber, Panamá</p>
-                        <p>Junio 2023</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Agente de servicio al cliente</h3>
-                        <p>Sitel - Ciudad de Panamá, Panamá</p>
-                        <p>Enero/Abril 2023</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Ejecutivo de ventas</h3>
-                        <p>Dunnes Store - Ciudad de Dublín, Irlanda</p>
-                        <p>Contrato Definido</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Experiencia en bodegas</h3>
-                        <p>Dangan Recruitment - Ciudad de Dublín, Irlanda</p>
-                        <p>11 Meses</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="proyectos" class="section">
+        <section id="featured-projects">
             <h2>Proyectos Destacados</h2>
-            <article>
-                <h3>The World Depends on Me</h3>
-                <img src="TheWorld.png" alt="The World Depends on Me" class="project-image">
-                <p>The World Depends on Me es un juego de tower defense creado como proyecto final de Programming for Video Games II. Desarrollado por un equipo de 4 estudiantes durante 2 meses, el juego utiliza el sistema Nav Mesh de Unity y State Machine Behavior. Como UI Programmer, fui responsable de diseñar e implementar la interfaz de usuario del juego.</p>
-                <h4>Equipo:</h4>
-                <ul>
-                    <li>UI Programmer: Martin G. Cardoze Salado</li>
-                    <li>Lead Programmer and Game Designer: AnotherKyleDev</li>
-                    <li>Programmer: Alan Cruz</li>
-                    <li>Level designer: Jorge Tejada</li>
-                </ul>
-            </article>
-            <article>
-                <h3>THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD</h3>
-                <img src="Cat.png" height="300">
-                <p>Este juego fue creado en una Game Jam de 3 días y posteriormente pulido. En él, el jugador controla un enorme gato que devora la ciudad y crece hasta el infinito. Como UI Programmer, trabajé en la interfaz de usuario para mejorar la experiencia del jugador.</p>
-                <h4>Equipo:</h4>
-                <ul>
-                    <li>UI Programmer: Martin G. Cardoze Salado</li>
-                    <li>Lead Programmer & 3D Artist: Jeremy Castillo</li>
-                    <li>Music Producer: Jose Moreno</li>
-                    <li>Programmer: Alexander Reyes</li>
-                    <li>Narrative writer: Gabriel Figueroa</li>
-                </ul>
-            </article>
-        </section>
-
-        <section id="datos-interes" class="section">
-            <h2>Datos de Interés</h2>
-            <h3>Games Jams</h3>
-            <ul>
-                <li>Global Game Jam 2023 - Desarrollé el UI y sus sistemas dentro del juego en el que trabajé</li>
-                <li>Global Game Jam 2024 - Desarrollé el UI y sus sistemas dentro del juego en el que trabajé</li>
-            </ul>
-
-            <h3>Voluntariado</h3>
-            <ul>
-                <li>Feria del libro 2023: Conferencista en la Feria del Libro - Educación Steam</li>
-                <li>Mundial de Robótica: Expositor de proyectos de videojuegos</li>
-                <li>Primer Presidente del Consejo Estudiantil de la Universidad Interamericana de Puerto Rico - Sede en Ciudad del Saber - 2023/2024</li>
-            </ul>
+            <div class="project-gallery">
+                <article class="project-card">
+                    <img src="assets/images/TheWorld.png" alt="The World Depends on Me">
+                    <h3>The World Depends on Me</h3>
+                    <p>Juego de tower defense desarrollado en equipo.</p>
+                    <a href="projects.html#world-depends">Ver más</a>
+                </article>
+                <article class="project-card">
+                    <img src="assets/images/Cat.png" alt="THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD">
+                    <h3>THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD</h3>
+                    <p>Juego creado en una Game Jam de 3 días.</p>
+                    <a href="projects.html#biggest-cat">Ver más</a>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer>
-        <div class="contact-icons">
-            <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/Ghost31Predador"><i class="fab fa-github"></i></a>
-            <a href="mailto:martin31cardoze@hotmail.com"><i class="fas fa-envelope"></i></a>
+        <p>&copy; 2024 Martín G. Cardoze Salado. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Ghost31Predador" target="_blank">GitHub</a>
+            <a href="mailto:martin31cardoze@hotmail.com">Email</a>
         </div>
-        <p>&copy; 2024 Mart&iacute;n G. Cardoze Salado. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
