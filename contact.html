@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta a Martín G. Cardoze Salado, desarrollador de videojuegos">
+    <meta name="keywords" content="contacto, desarrollador de videojuegos, UI/UX, Unity, C#">
+    <meta name="author" content="Martín G. Cardoze Salado">
+    <title>Contacto - Martín G. Cardoze Salado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Maven+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-background: #EEDCC7;
+            --color-text: #43251E;
+            --color-accent: #68160D;
+            --color-section-bg: rgba(255, 255, 255, 0.8);
+            --font-headers: 'Pixelify Sans', cursive;
+            --font-body: 'Maven Pro', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--color-accent);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--color-background);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-family: var(--font-headers);
+            font-size: 1.2rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-section-bg);
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        h1, h2 {
+            font-family: var(--font-headers);
+            color: var(--color-accent);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            background-color: var(--color-section-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 0.5rem;
+            border: 1px solid var(--color-accent);
+            border-radius: 4px;
+            font-family: var(--font-body);
+        }
+
+        button {
+            background-color: var(--color-accent);
+            color: var(--color-background);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-headers);
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--color-text);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            color: var(--color-text);
+        }
+
+        footer {
+            background-color: var(--color-accent);
+            color: var(--color-background);
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="projects.html">Proyectos</a></li>
+                <li><a href="about.html">Sobre Mí</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Contacto</h1>
+        
+        <section class="contact-section">
+            <h2>Envíame un mensaje</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Ghost31Predador" target="_blank">GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Martín G. Cardoze Salado. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
