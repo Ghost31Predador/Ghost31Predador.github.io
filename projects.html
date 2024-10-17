@@ -96,6 +96,8 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -107,10 +109,14 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
+            object-position: center;
         }
 
         .project-info {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-info h2 {
@@ -127,6 +133,10 @@
             font-style: italic;
             color: var(--color-accent);
             margin-bottom: 1rem;
+        }
+
+        .project-info .button-container {
+            margin-top: auto;
         }
 
         .project-info a {
@@ -210,7 +220,9 @@
                     <p>Un juego de tower defense creado como proyecto final de Programming for Video Games II. Desarrollado por un equipo de 4 estudiantes durante 2 meses, el juego utiliza el sistema Nav Mesh de Unity y State Machine Behavior.</p>
                     <p class="technologies">Tecnologías: Unity, C#, Nav Mesh, State Machine</p>
                     <p>Rol: UI Programmer</p>
-                    <a href="#">Jugar Ahora</a>
+                    <div class="button-container">
+                        <a href="https://kylentdev.itch.io/the-world-depends-on-me">Ver Demo</a>
+                    </div>
                 </div>
             </article>
             <article class="project-card" id="biggest-cat">
@@ -220,17 +232,21 @@
                     <p>Este juego fue creado en una Game Jam de 3 días y posteriormente pulido. En él, el jugador controla un enorme gato que devora la ciudad y crece hasta el infinito.</p>
                     <p class="technologies">Tecnologías: Unity, C#</p>
                     <p>Rol: UI Programmer</p>
-                    <a href="#">Jugar Ahora</a>
+                    <div class="button-container">
+                        <a href="https://jermix.itch.io/the-biggest-and-cutest-cat-in-the-whole-world">Jugar Ahora</a>
+                    </div>
                 </div>
             </article>
-            <article class="project-card">
+            <article class="project-card" id="exo">
                 <img src="assets/images/exoproject.jpg" alt="Exo Project">
                 <div class="project-info">
-                    <h2>Proyecto Game Jam 2023</h2>
-                    <p>Desarrollé la interfaz de usuario y sus sistemas para este emocionante juego creado durante la Global Game Jam 2023.</p>
-                    <p class="technologies">Tecnologías: Unity, C#, UI/UX Design</p>
-                    <p>Rol: UI Programmer</p>
-                    <a href="#">Más Información</a>
+                    <h2>Exo Project</h2>
+                    <p>Es un juego de tower defense con vistas isométrica en la que intentas defender tu base de robots asesinos. El jugador debe estratégicamente colocar defensas y gestionar recursos para sobrevivir a oleadas cada vez más difíciles.</p>
+                    <p class="technologies">Tecnologías: Unity, C#, Isometric Design</p>
+                    <p>Rol: Game Designer & UI Developer</p>
+                    <div class="button-container">
+                        <a href="#">Explorar Proyecto</a>
+                    </div>
                 </div>
             </article>
         </div>
