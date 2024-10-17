@@ -196,6 +196,34 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Estilos para el modo oscuro */
+        body.dark-mode {
+            --color-background: #2C2C2C;
+            --color-text: #E0E0E0;
+            --color-accent: #FF6B6B;
+            --color-section-bg: rgba(60, 60, 60, 0.8);
+        }
+
+        /* Botón de modo oscuro */
+        #darkModeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--color-accent);
+            color: var(--color-background);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: var(--font-headers);
+            font-size: 0.9rem;
+            z-index: 1001;
+        }
+
+        #darkModeToggle:hover {
+            background-color: var(--color-text);
+        }
     </style>
 </head>
 <body>
@@ -210,6 +238,8 @@
         </nav>
     </header>
 
+    <button id="darkModeToggle">Cambiar modo</button>
+
     <main class="container">
         <h1>Mis Proyectos</h1>
         <div class="project-grid">
@@ -221,7 +251,7 @@
                     <p class="technologies">Tecnologías: Unity, C#, Nav Mesh, State Machine</p>
                     <p>Rol: UI Programmer</p>
                     <div class="button-container">
-                        <a href="https://kylentdev.itch.io/the-world-depends-on-me">Ver Demo</a>
+                        <a href="#">Ver Demo</a>
                     </div>
                 </div>
             </article>
@@ -233,7 +263,7 @@
                     <p class="technologies">Tecnologías: Unity, C#</p>
                     <p>Rol: UI Programmer</p>
                     <div class="button-container">
-                        <a href="https://jermix.itch.io/the-biggest-and-cutest-cat-in-the-whole-world">Jugar Ahora</a>
+                        <a href="#">Jugar Ahora</a>
                     </div>
                 </div>
             </article>
@@ -260,5 +290,19 @@
             <a href="mailto:martin31cardoze@hotmail.com">Email</a>
         </div>
     </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+            document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+        });
+    </script>
 </body>
 </html>
