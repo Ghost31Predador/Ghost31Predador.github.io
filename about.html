@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyectos de desarrollo de videojuegos de Martín G. Cardoze Salado">
-    <meta name="keywords" content="proyectos de videojuegos, UI/UX, Unity, C#, portafolio">
+    <meta name="description" content="Información sobre Martín G. Cardoze Salado, desarrollador de videojuegos">
+    <meta name="keywords" content="desarrollador de videojuegos, UI/UX, Unity, C#, biografía">
     <meta name="author" content="Martín G. Cardoze Salado">
-    <title>Proyectos - Martín G. Cardoze Salado</title>
+    <title>Sobre Mí - Martín G. Cardoze Salado</title>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Maven+Pro:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -76,82 +76,132 @@
         h1, h2 {
             font-family: var(--font-headers);
             color: var(--color-accent);
-            text-align: center;
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 2rem;
+            text-align: center;
         }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .project-card {
+        .about-section {
             background-color: var(--color-section-bg);
+            padding: 2rem;
             border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-
-        .project-card img {
-            width: 100%;
+        .profile-pic {
+            width: 200px;
             height: 200px;
+            border-radius: 50%;
             object-fit: cover;
-            object-position: center;
+            margin: 0 auto 2rem;
+            display: block;
+            border: 4px solid var(--color-accent);
         }
 
-        .project-info {
-            padding: 1.5rem;
+        .skills-list {
             display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        .project-info h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .project-info p {
-            margin-bottom: 1rem;
-        }
-
-        .project-info .technologies {
-            font-style: italic;
-            color: var(--color-accent);
-            margin-bottom: 1rem;
-        }
-
-        .project-info .button-container {
-            margin-top: auto;
-        }
-
-        .project-info a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
+        .skill-item {
             background-color: var(--color-accent);
             color: var(--color-background);
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
 
-        .project-info a:hover {
-            background-color: var(--color-text);
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--color-accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--color-background);
+            border: 4px solid var(--color-accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--color-section-bg);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--color-section-bg);
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--color-section-bg);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--color-section-bg) transparent transparent;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--color-section-bg);
+            position: relative;
+            border-radius: 6px;
         }
 
         footer {
@@ -178,22 +228,30 @@
             color: var(--color-section-bg);
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
             }
 
-            nav ul li {
-                margin: 10px 0;
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
 
-            h1 {
-                font-size: 2.5rem;
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid var(--color-section-bg);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--color-section-bg) transparent transparent;
             }
 
-            .project-grid {
-                grid-template-columns: 1fr;
+            .left::after, .right::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0%;
             }
         }
     </style>
@@ -211,45 +269,85 @@
     </header>
 
     <main class="container">
-        <h1>Mis Proyectos</h1>
-        <div class="project-grid">
-            <article class="project-card" id="world-depends">
-                <img src="assets/images/TheWorld.png" alt="The World Depends on Me">
-                <div class="project-info">
-                    <h2>The World Depends on Me</h2>
-                    <p>Un juego de tower defense creado como proyecto final de Programming for Video Games II. Desarrollado por un equipo de 4 estudiantes durante 2 meses, el juego utiliza el sistema Nav Mesh de Unity y State Machine Behavior.</p>
-                    <p class="technologies">Tecnologías: Unity, C#, Nav Mesh, State Machine</p>
-                    <p>Rol: UI Programmer</p>
-                    <div class="button-container">
-                        <a href="https://kylentdev.itch.io/the-world-depends-on-me">Ver Demo</a>
+        <h1>Sobre Mí</h1>
+        
+        <section class="about-section">
+            <img src="assets/images/Martin Cardoze.jpg" alt="Martín G. Cardoze Salado" class="profile-pic">
+            <h2>Biografía</h2>
+            <p>Soy Martín G. Cardoze Salado, un apasionado desarrollador de videojuegos especializado en UI/UX. Mi objetivo es crear experiencias de juego inmersivas y accesibles que cautiven a los jugadores. Con una sólida formación en diseño y desarrollo, busco constantemente innovar en la intersección entre la jugabilidad y la experiencia del usuario.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-list">
+                <span class="skill-item">Unity</span>
+                <span class="skill-item">C#</span>
+                <span class="skill-item">UI/UX Design</span>
+                <span class="skill-item">Git</span>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Formación</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Universidad Interamericana de Puerto Rico</h3>
+                        <p>Diseño y Desarrollo de Videojuegos</p>
+                        <p>Actualmente - Cuarto Año</p>
                     </div>
                 </div>
-            </article>
-            <article class="project-card" id="biggest-cat">
-                <img src="assets/images/Cat.png" alt="THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD">
-                <div class="project-info">
-                    <h2>THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD</h2>
-                    <p>Este juego fue creado en una Game Jam de 3 días y posteriormente pulido. En él, el jugador controla un enorme gato que devora la ciudad y crece hasta el infinito.</p>
-                    <p class="technologies">Tecnologías: Unity, C#</p>
-                    <p>Rol: UI Programmer</p>
-                    <div class="button-container">
-                        <a href="https://jermix.itch.io/the-biggest-and-cutest-cat-in-the-whole-world">Jugar Ahora</a>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Instituto Episcopal San Cristobal</h3>
+                        <p>Bachiller en Letras con énfasis en Turismo e Informatica</p>
+                        <p>2018</p>
                     </div>
                 </div>
-            </article>
-            <article class="project-card" id="exo">
-                <img src="assets/images/exoproject.jpg" alt="Exo Project">
-                <div class="project-info">
-                    <h2>Exo Project</h2>
-                    <p>Es un juego de tower defense con vistas isométrica en la que intentas defender tu base de robots asesinos. El jugador debe estratégicamente colocar defensas y gestionar recursos para sobrevivir a oleadas cada vez más difíciles.</p>
-                    <p class="technologies">Tecnologías: Unity, C#, Isometric Design</p>
-                    <p>Rol: Game Designer & UI Developer</p>
-                    <div class="button-container">
-                        <a href="#">Explorar Proyecto</a>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Formación Complementaria</h3>
+                        <p>Taller de Videojuegos con impacto social</p>
+                        <p>Organización Mundial de la Propiedad Intelectual</p>
+                        <p>Noviembre 2023</p>
                     </div>
                 </div>
-            </article>
-        </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Experiencia Laboral</h2>
+            <div class="timeline">
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Salonero</h3>
+                        <p>Clayton Bowling - Ciudad del Saber, Panamá</p>
+                        <p>Junio 2023</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Agente de servicio al cliente</h3>
+                        <p>Sitel - Ciudad de Panamá, Panamá</p>
+                        <p>Enero/Abril 2023</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Ejecutivo de ventas</h3>
+                        <p>Dunnes Store - Ciudad de Dublín, Irlanda</p>
+                        <p>Contrato Definido</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Experiencia en bodegas</h3>
+                        <p>Dangan Recruitment - Ciudad de Dublín, Irlanda</p>
+                        <p>11 Meses</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
