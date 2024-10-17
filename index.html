@@ -197,29 +197,6 @@
             color: var(--color-section-bg);
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .project-card {
-                width: 100%;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-        }
-
         /* Estilos para el modo oscuro */
         body.dark-mode {
             --color-background: #2C2C2C;
@@ -247,6 +224,51 @@
         #darkModeToggle:hover {
             background-color: var(--color-text);
         }
+
+        /* Estilos para el efecto de máquina de escribir */
+        .typewriter h1, .typewriter h2 {
+            overflow: hidden;
+            border-right: .15em solid var(--color-accent);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--color-accent); }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .project-card {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -266,8 +288,10 @@
     <main class="container">
         <section id="hero">
             <img src="assets/images/Martin Cardoze.jpg" alt="Martín G. Cardoze Salado" class="profile-pic">
-            <h1>Martín G. Cardoze Salado</h1>
-            <h2>Desarrollador de Videojuegos</h2>
+            <div class="typewriter">
+                <h1 id="nameTitle"></h1>
+                <h2 id="jobTitle"></h2>
+            </div>
         </section>
 
         <section id="intro">
@@ -321,11 +345,29 @@
             localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         }
 
+        function typeWriter(txt, elementId, speed) {
+            let i = 0;
+            function typing() {
+                if (i < txt.length) {
+                    document.getElementById(elementId).innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('darkMode') === 'true') {
                 document.body.classList.add('dark-mode');
             }
             document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+
+            // Iniciar efecto de máquina de escribir
+            typeWriter("Martín G. Cardoze Salado", "nameTitle", 100);
+            setTimeout(() => {
+                typeWriter("Desarrollador de Videojuegos", "jobTitle", 100);
+            }, 3500); // Espera a que termine el nombre antes de empezar el título
         });
     </script>
 </body>
