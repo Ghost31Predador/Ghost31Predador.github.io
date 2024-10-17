@@ -228,6 +228,34 @@
             color: var(--color-section-bg);
         }
 
+        /* Estilos para el modo oscuro */
+        body.dark-mode {
+            --color-background: #2C2C2C;
+            --color-text: #E0E0E0;
+            --color-accent: #FF6B6B;
+            --color-section-bg: rgba(60, 60, 60, 0.8);
+        }
+
+        /* Botón de modo oscuro */
+        #darkModeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--color-accent);
+            color: var(--color-background);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: var(--font-headers);
+            font-size: 0.9rem;
+            z-index: 1001;
+        }
+
+        #darkModeToggle:hover {
+            background-color: var(--color-text);
+        }
+
         @media screen and (max-width: 600px) {
             .timeline::after {
                 left: 31px;
@@ -268,6 +296,8 @@
         </nav>
     </header>
 
+    <button id="darkModeToggle">Cambiar modo</button>
+
     <main class="container">
         <h1>Sobre Mí</h1>
         
@@ -282,7 +312,6 @@
             <div class="skills-list">
                 <span class="skill-item">Unity</span>
                 <span class="skill-item">C#</span>
-                <span class="skill-item">UI/UX Design</span>
                 <span class="skill-item">Git</span>
             </div>
         </section>
@@ -358,5 +387,19 @@
             <a href="mailto:martin31cardoze@hotmail.com">Email</a>
         </div>
     </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
+            document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+        });
+    </script>
 </body>
 </html>
