@@ -1,281 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyectos de desarrollo de videojuegos de Martín G. Cardoze Salado">
-    <meta name="keywords" content="proyectos de videojuegos, UI/UX, Unity, C#, portafolio">
-    <meta name="author" content="Martín G. Cardoze Salado">
-    <title>Proyectos - Martín G. Cardoze Salado</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Maven+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-background: #EEDCC7;
-            --color-text: #43251E;
-            --color-accent: #68160D;
-            --color-section-bg: rgba(255, 255, 255, 0.8);
-            --font-headers: 'Pixelify Sans', cursive;
-            --font-body: 'Maven Pro', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-background);
-            color: var(--color-text);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--color-accent);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: var(--color-background);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            font-family: var(--font-headers);
-            font-size: 1.2rem;
-        }
-
-        nav ul li a:hover {
-            color: var(--color-section-bg);
-        }
-
-        main {
-            padding: 2rem 0;
-        }
-
-        h1, h2 {
-            font-family: var(--font-headers);
-            color: var(--color-accent);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: var(--color-section-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .project-info h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .project-info p {
-            margin-bottom: 1rem;
-        }
-
-        .project-info .technologies {
-            font-style: italic;
-            color: var(--color-accent);
-            margin-bottom: 1rem;
-        }
-
-        .project-info .button-container {
-            margin-top: auto;
-        }
-
-        .project-info a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .project-info a:hover {
-            background-color: var(--color-text);
-        }
-
-        footer {
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            padding: 1rem 0;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--color-background);
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .social-links a:hover {
-            color: var(--color-section-bg);
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Estilos para el modo oscuro */
-        body.dark-mode {
-            --color-background: #2C2C2C;
-            --color-text: #E0E0E0;
-            --color-accent: #FF6B6B;
-            --color-section-bg: rgba(60, 60, 60, 0.8);
-        }
-
-        /* Botón de modo oscuro */
-        #darkModeToggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: var(--font-headers);
-            font-size: 0.9rem;
-            z-index: 1001;
-        }
-
-        #darkModeToggle:hover {
-            background-color: var(--color-text);
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Martín G. Cardoze Salado - [Nombre de la página]</title>
+        <!-- Fuentes -->
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&family=Pixelify+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+        <!-- Estilos y Scripts propios -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="assets/js/events.js" defer></script>
+    </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="projects.html">Proyectos</a></li>
-                <li><a href="about.html">Sobre Mí</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <button id="darkModeToggle">Cambiar modo</button>
+    <nav>
+        <div>
+            <a href="index.html">Inicio</a>
+            <a href="projects.html">Proyectos</a>
+            <a href="about.html">Sobre Mí</a>
+            <a href="contact.html">Contacto</a>
+            <button id="theme-toggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
 
     <main class="container">
         <h1>Mis Proyectos</h1>
+
         <div class="project-grid">
-            <article class="project-card" id="world-depends">
+            <!-- The World Depends on Me -->
+            <article class="project-info">
                 <img src="assets/images/TheWorld.png" alt="The World Depends on Me">
-                <div class="project-info">
-                    <h2>The World Depends on Me</h2>
+                <div class="project-content">
+                    <h3>The World Depends on Me</h3>
                     <p>Un juego de tower defense creado como proyecto final de Programming for Video Games II. Desarrollado por un equipo de 4 estudiantes durante 2 meses, el juego utiliza el sistema Nav Mesh de Unity y State Machine Behavior.</p>
-                    <p class="technologies">Tecnologías: Unity, C#, Nav Mesh, State Machine</p>
-                    <p>Rol: UI Programmer</p>
+                    <p><strong>Tecnologías:</strong> Unity, C#, Nav Mesh, State Machine</p>
+                    <p><strong>Rol:</strong> UI Programmer</p>
                     <div class="button-container">
-                        <a href="https://kylentdev.itch.io/the-world-depends-on-me">Ver Demo</a>
+                        <a href="https://kylentdev.itch.io/the-world-depends-on-me" class="button" target="_blank">Ver Demo</a>
                     </div>
                 </div>
             </article>
-            <article class="project-card" id="biggest-cat">
+        
+            <!-- THE BIGGEST AND CUTEST CAT -->
+            <article class="project-info">
                 <img src="assets/images/Cat.png" alt="THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD">
-                <div class="project-info">
-                    <h2>THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD</h2>
+                <div class="project-content">
+                    <h3>THE BIGGEST AND CUTEST CAT IN THE WHOLE WORLD</h3>
                     <p>Este juego fue creado en una Game Jam de 3 días y posteriormente pulido. En él, el jugador controla un enorme gato que devora la ciudad y crece hasta el infinito.</p>
-                    <p class="technologies">Tecnologías: Unity, C#</p>
-                    <p>Rol: UI Programmer</p>
+                    <p><strong>Tecnologías:</strong> Unity, C#</p>
+                    <p><strong>Rol:</strong> UI Programmer</p>
                     <div class="button-container">
-                        <a href="https://jermix.itch.io/the-biggest-and-cutest-cat-in-the-whole-world">Jugar Ahora</a>
+                        <a href="https://jermix.itch.io/the-biggest-and-cutest-cat-in-the-whole-world" class="button" target="_blank">Jugar Ahora</a>
                     </div>
                 </div>
             </article>
-            <article class="project-card" id="exo">
+        
+            <!-- Exo Project -->
+            <article class="project-info">
                 <img src="assets/images/exoproject.jpg" alt="Exo Project">
-                <div class="project-info">
-                    <h2>Exo Project</h2>
+                <div class="project-content">
+                    <h3>Exo Project</h3>
                     <p>Es un juego de tower defense con vistas isométrica en la que intentas defender tu base de robots asesinos. El jugador debe estratégicamente colocar defensas y gestionar recursos para sobrevivir a oleadas cada vez más difíciles.</p>
-                    <p class="technologies">Tecnologías: Unity, C#, Isometric Design</p>
-                    <p>Rol: Game Designer & UI Developer</p>
+                    <p><strong>Tecnologías:</strong> Unity, C#, Isometric Design</p>
+                    <p><strong>Rol:</strong> Game Designer & UI Developer</p>
                     <div class="button-container">
-                        <a href="#">Explorar Proyecto</a>
+                        <a href="#" class="button">Explorar Proyecto</a>
                     </div>
                 </div>
             </article>
@@ -283,26 +74,21 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Martín G. Cardoze Salado. Todos los derechos reservados.</p>
+        <p>© 2024 Martín G. Cardoze Salado. Todos los derechos reservados.</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Ghost31Predador" target="_blank">GitHub</a>
-            <a href="mailto:martin31cardoze@hotmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+            <a href="https://github.com/Ghost31Predador" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+            <a href="mailto:martin31cardoze@hotmail.com">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
         </div>
     </footer>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.body.classList.add('dark-mode');
-            }
-            document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
-        });
-    </script>
 </body>
 </html>

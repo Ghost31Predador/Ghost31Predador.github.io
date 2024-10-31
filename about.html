@@ -1,313 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Información sobre Martín G. Cardoze Salado, desarrollador de videojuegos">
-    <meta name="keywords" content="desarrollador de videojuegos, UI/UX, Unity, C#, biografía">
-    <meta name="author" content="Martín G. Cardoze Salado">
-    <title>Sobre Mí - Martín G. Cardoze Salado</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&family=Maven+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-background: #EEDCC7;
-            --color-text: #43251E;
-            --color-accent: #68160D;
-            --color-section-bg: rgba(255, 255, 255, 0.8);
-            --font-headers: 'Pixelify Sans', cursive;
-            --font-body: 'Maven Pro', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-background);
-            color: var(--color-text);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--color-accent);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: var(--color-background);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            font-family: var(--font-headers);
-            font-size: 1.2rem;
-        }
-
-        nav ul li a:hover {
-            color: var(--color-section-bg);
-        }
-
-        main {
-            padding: 2rem 0;
-        }
-
-        h1, h2 {
-            font-family: var(--font-headers);
-            color: var(--color-accent);
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .about-section {
-            background-color: var(--color-section-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 2rem;
-            display: block;
-            border: 4px solid var(--color-accent);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .skill-item {
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--color-accent);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background-color: var(--color-background);
-            border: 4px solid var(--color-accent);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid var(--color-section-bg);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--color-section-bg);
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid var(--color-section-bg);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--color-section-bg) transparent transparent;
-        }
-
-        .right::after {
-            left: -16px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--color-section-bg);
-            position: relative;
-            border-radius: 6px;
-        }
-
-        footer {
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            padding: 1rem 0;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .social-links {
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--color-background);
-            margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .social-links a:hover {
-            color: var(--color-section-bg);
-        }
-
-        /* Estilos para el modo oscuro */
-        body.dark-mode {
-            --color-background: #2C2C2C;
-            --color-text: #E0E0E0;
-            --color-accent: #FF6B6B;
-            --color-section-bg: rgba(60, 60, 60, 0.8);
-        }
-
-        /* Botón de modo oscuro */
-        #darkModeToggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: var(--color-accent);
-            color: var(--color-background);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: var(--font-headers);
-            font-size: 0.9rem;
-            z-index: 1001;
-        }
-
-        #darkModeToggle:hover {
-            background-color: var(--color-text);
-        }
-
-        @media screen and (max-width: 600px) {
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid var(--color-section-bg);
-                border-width: 10px 10px 10px 0;
-                border-color: transparent var(--color-section-bg) transparent transparent;
-            }
-
-            .left::after, .right::after {
-                left: 15px;
-            }
-
-            .right {
-                left: 0%;
-            }
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Martín G. Cardoze Salado - [Nombre de la página]</title>
+        <!-- Fuentes -->
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;700&family=Pixelify+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+        <!-- Estilos y Scripts propios -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="assets/js/events.js" defer></script>
+    </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="projects.html">Proyectos</a></li>
-                <li><a href="about.html">Sobre Mí</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <button id="darkModeToggle">Cambiar modo</button>
+    <nav>
+        <div>
+            <a href="index.html">Inicio</a>
+            <a href="projects.html">Proyectos</a>
+            <a href="about.html">Sobre Mí</a>
+            <a href="contact.html">Contacto</a>
+            <button id="theme-toggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
 
     <main class="container">
         <h1>Sobre Mí</h1>
-        
-        <section class="about-section">
-            <img src="assets/images/Martin Cardoze.jpg" alt="Martín G. Cardoze Salado" class="profile-pic">
+
+        <section class="section about-section">
+            <img src="assets/images/Martin%20Cardoze.jpg" alt="Martín G. Cardoze Salado" class="profile-pic">
             <h2>Biografía</h2>
-            <p>Soy Martín G. Cardoze Salado, un apasionado desarrollador de videojuegos especializado en UI/UX. Mi objetivo es crear experiencias de juego inmersivas y accesibles que cautiven a los jugadores. Con una sólida formación en diseño y desarrollo, busco constantemente innovar en la intersección entre la jugabilidad y la experiencia del usuario.</p>
+            <p>Soy Martín G. Cardoze Salado, un apasionado desarrollador de videojuegos. Mi objetivo es crear experiencias de juego inmersivas y accesibles que cautiven a los jugadores. Con una sólida formación en diseño y desarrollo, busco constantemente innovar en la intersección entre la jugabilidad y la experiencia del usuario.</p>
         </section>
 
-        <section class="about-section">
+        <section class="section about-section">
             <h2>Habilidades Técnicas</h2>
             <div class="skills-list">
                 <span class="skill-item">Unity</span>
@@ -320,7 +47,7 @@
             </div>
         </section>
 
-        <section class="about-section">
+        <section class="section about-section">
             <h2>Formación</h2>
             <div class="timeline">
                 <div class="timeline-item left">
@@ -330,6 +57,7 @@
                         <p>Actualmente - Cuarto Año</p>
                     </div>
                 </div>
+
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <h3>Instituto Episcopal San Cristobal</h3>
@@ -337,6 +65,7 @@
                         <p>2018</p>
                     </div>
                 </div>
+
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>Formación Complementaria</h3>
@@ -348,7 +77,7 @@
             </div>
         </section>
 
-        <section class="about-section">
+        <section class="section about-section">
             <h2>Experiencia Laboral</h2>
             <div class="timeline">
                 <div class="timeline-item right">
@@ -358,6 +87,7 @@
                         <p>Junio 2023</p>
                     </div>
                 </div>
+
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>Agente de servicio al cliente</h3>
@@ -365,6 +95,7 @@
                         <p>Enero/Abril 2023</p>
                     </div>
                 </div>
+
                 <div class="timeline-item right">
                     <div class="timeline-content">
                         <h3>Ejecutivo de ventas</h3>
@@ -372,6 +103,7 @@
                         <p>Contrato Definido</p>
                     </div>
                 </div>
+
                 <div class="timeline-item left">
                     <div class="timeline-content">
                         <h3>Experiencia en bodegas</h3>
@@ -384,26 +116,21 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Martín G. Cardoze Salado. Todos los derechos reservados.</p>
+        <p>© 2024 Martín G. Cardoze Salado. Todos los derechos reservados.</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/Ghost31Predador" target="_blank">GitHub</a>
-            <a href="mailto:martin31cardoze@hotmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/mart%C3%ADn-cardoze-317b55183/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+            <a href="https://github.com/Ghost31Predador" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+            <a href="mailto:martin31cardoze@hotmail.com">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
         </div>
     </footer>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('darkMode') === 'true') {
-                document.body.classList.add('dark-mode');
-            }
-            document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
-        });
-    </script>
 </body>
 </html>
